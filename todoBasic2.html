@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Todo App</title>
+</head>
+<body>
+    <input id="whattodo" type="text" />
+    <input id='date-picker' type="date" />
+    <button onclick="addTodo()">Add Todo</button>
+
+    <div id="todo-list">
+
+    </div>
+
+    <script>
+        const todos = ['Get groceries', 'Wash car', 'Make dinner'];
+
+        render();
+
+        function addTodo() {
+            const textbox = document.getElementById('whattodo'); //get the element by the id
+            let title = textbox.value; //assign the title to be what has been input in the text box
+            todos.push(title); //add the assigned title to the todo list by pushing it to the array
+
+            const datePicker = document.getElementById('date-picker');
+            const dueDate = datePicker.value;
+            todos.push(title);            
+
+            render();
+        }
+
+/*can use this too 
+just like in regular java language 
+to make a comment*/
+
+        function render() {
+            //reset list
+            document.getElementById('todo-list').innerHTML = '';
+
+            todos.forEach(function (todoTitle) {
+            const element = document.createElement('div');
+            element.innerText = todoTitle;
+            const todoList = document.getElementById('todo-list');
+            todoList.appendChild(element);
+            });
+        }
+
+    </script>
+</body>
+</html>
